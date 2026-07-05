@@ -1,0 +1,11 @@
+.env
+*token*
+*apikey*
+*api_key*
+*.key
+secrets.json
+__pycache__/
+.ipynb_checkpoints/
+venv/
+*.pyc
+outputs/dataset_with_sentiment.xlsx

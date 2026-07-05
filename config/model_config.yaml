@@ -1,0 +1,40 @@
+sentiment_models:
+  candidates:
+    - name: "IndoBERT"
+      huggingface_id: "taufiqdp/indonesian-sentiment"
+      selected: true
+    - name: "RoBERTa"
+      huggingface_id: "w11wo/indonesian-roberta-base-sentiment-classifier"
+      selected: false
+  benchmark_only:
+    - name: "IndoRoBERTa-SmSA"
+      huggingface_id: "ayameRushia/roberta-base-indonesian-sentiment-analysis-smsa"
+    - name: "IndoBertweet-2024"
+      huggingface_id: "Aardiiiiy/indobertweet-base-Indonesian-sentiment-analysis"
+    - name: "XLM-R"
+      huggingface_id: "cardiffnlp/twitter-xlm-roberta-base-sentiment"
+    - name: "mBERT"
+      huggingface_id: "nlptown/bert-base-multilingual-uncased-sentiment"
+
+inference_settings:
+  max_input_length_chars: 512
+  inference_mode: "zero-shot"
+  threshold: "default (highest probability)"
+
+environment:
+  python: "3.11.0"
+  transformers: "5.6.0"
+  torch: "2.11.0+cpu"
+
+community_detection:
+  algorithm: "Louvain"
+  library: "python-louvain"
+  random_seed: 42
+
+ground_truth_sampling:
+  method: "Slovin's formula"
+  population_N: 5715
+  margin_of_error: 0.05
+  sample_size: 374
+  random_seed: 42
+  cohens_kappa: 0.528
